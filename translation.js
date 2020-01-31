@@ -1,7 +1,7 @@
 const api_key = "trnsl.1.1.20200131T112310Z.bfc1d36c54675d02.261fee42a4730dcc205a9a15b708749acc263fba";
 var languages = [];
-var selectedLang = "es";
-var selectedFromLang = "en";
+var selectedLang = "en";
+var selectedFromLang = "es";
 var finalTranscript = '';
 
 window.onload = ()=>{
