@@ -3,6 +3,7 @@ var languages = [];
 var selectedLang = "en";
 var selectedFromLang = "es";
 var finalTranscript = '';
+var recognition; 
 
 window.onload = ()=>{
     loadSupportedLanguages();
@@ -82,11 +83,14 @@ function changeLang(){
 function changeFromLang(){
     let select = document.querySelector("#supportedFromLanguages");
     selectedFromLang = select.options[select.selectedIndex].value;
+    recognition.lang = selectedFromLang+"-"+selectedFromLang.toUpperCase();
+    document.querySelector("#translationBox").innerHTML = '';
+    finalTranscript = '';
 }
 
 function transcriptVoice() {
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-    let recognition = new window.SpeechRecognition();
+    recognition = new window.SpeechRecognition();
     recognition.interimResults = true;
     recognition.maxAlternatives = 10;
     recognition.continuous = true;
